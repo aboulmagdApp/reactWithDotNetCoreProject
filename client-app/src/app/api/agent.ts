@@ -1,9 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
+import { history } from '../..';
 import { Activity } from '../models/activity';
-
-
-import { useHistory } from 'react-router';
 
 
 const sleep = (delay: number) => {
@@ -39,7 +37,7 @@ axios.interceptors.response.use(async response => {
       break;
     case 404:
       //toast.error('not found');
-      // history.push('/not-found');
+      history.push('/not-found');
       //history.push("", "", '/not-found') //history.push('/not-found')
       //history.pushState(null, "", '/not-found');
       break;
